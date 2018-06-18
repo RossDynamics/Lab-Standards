@@ -1,24 +1,31 @@
-#Define fonts
-titlefont = {'fontsize':12,'family':'serif','fontname':'Times New Roman'}
-labelfont = {'fontsize':10,'family':'serif','fontname':'Times New Roman'}
-tickfont = {'fontsize':8,'family':'serif','fontname':'Times New Roman'}
+# We typically use Matplotlib and seaborn to make plots look pretty
+import matplotlib.pyplot as plt
+import seaborn as sns
 sns.set_style('ticks')
 
-#Generate Plot
-plt.figure(figsize=(3.6, 1.8))
-plt.xlabel('Streamwise spacing, $x^*$', **labelfont)
-plt.ylabel('Regression Coefficient', **labelfont)
+# Define font styles as dictionaries
+titlefont = {'fontsize':12,'family':'serif','fontname':'Computer Modern'}
+labelfont = {'fontsize':10,'family':'serif','fontname':'Computer Modern'}
+tickfont = {'fontsize':8,'family':'serif','fontname':'Computer Modern'}
+
+# Generate Plot
+plt.figure(figsize=(3.6, 2.4)) # Set a figure size that makes sense for the page
+plt.title('This is the title', **titlefont)
+plt.xlabel('$x$-axis label', **labelfont)
+plt.ylabel('$y$-axis label', **labelfont)
 plt.yticks([-1.0, -0.5, 0], **tickfont)
-plt.xticks([0, 5, 10, 15, 20], **tickfont)
+plt.xticks([-1.0, 0, 1.0], **tickfont)
 
 ##Set Limits
-#Predefined limits
+# Predefined limits
 plt.xlim([0, 21])
 plt.ylim([-1.15, 0])
 
-#Equal Axes
+# Autoscaled
+plt.autoscale(enable=True, axis='x', tight=True)
+
+# Equal Axes
 ax = plt.gca()
 ax.set_aspect('equal', adjustable='box', anchor='C')
-
-#Autoscaled
-plt.autoscale(enable=True, axis='x', tight=True)
+# Note that axes should be equal when both directions represent the same
+#    quantity over a similar scale
