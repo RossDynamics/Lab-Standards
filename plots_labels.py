@@ -9,7 +9,8 @@ labelfont = {'fontsize':10,'family':'serif','fontname':'Computer Modern'}
 tickfont = {'fontsize':8,'family':'serif','fontname':'Computer Modern'}
 
 # Generate Plot
-plt.figure(figsize=(3.6, 2.4)) # Set a figure size that makes sense for the page
+plt.figure(figsize=(3.6, 2.4)) # Set the size it will be in the document
+# figsize=(width, height)
 plt.title('This is the title', **titlefont)
 plt.xlabel('$x$-axis label', **labelfont)
 plt.ylabel('$y$-axis label', **labelfont)
@@ -29,3 +30,6 @@ ax = plt.gca()
 ax.set_aspect('equal', adjustable='box', anchor='C')
 # Note that axes should be equal when both directions represent the same
 #    quantity over a similar scale
+
+# Save a Figure
+plt.savefig('/path/to/name.eps', transparent=True, bbox_inches='tight')
